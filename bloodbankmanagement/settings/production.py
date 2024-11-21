@@ -7,7 +7,7 @@ client = google.cloud.logging.Client()
 client.setup_logging()
 
 DEBUG = False
-ALLOWED_HOSTS = ['blood-bank-442312.uc.r.appspot.com', 'blood-bank-442312@appspot.gserviceaccount.com']
+ALLOWED_HOSTS = ['blood-bank-442312.uc.r.appspot.com', 'blood-bank-442312@appspot.gserviceaccount.com','blood-bank-121963256536.us-central1.run.app']
 
 
 ROOT_URLCONF = 'bloodbankmanagement.urls'
