@@ -1,25 +1,9 @@
 steps:
-  # Step 1: Install dependencies using the Python image
+  - name: "python:3.10"
+    args: ["pip", "install", "-r", "requirements.txt"]
   - name: "gcr.io/cloud-builders/python"
-    args:
-      - "pip"
-      - "install"
-      - "-r"
-      - "requirements.txt"
-
-  # Step 2: Run Django migrations (optional but recommended for fresh deployments)
-  - name: "gcr.io/cloud-builders/python"
-    args:
-      - "python"
-      - "manage.py"
-      - "migrate"
-
-  # Step 3: Deploy to Google Cloud App Engine
+    args: ["python", "manage.py", "migrate"]
   - name: "gcr.io/cloud-builders/gcloud"
-    args:
-      - "app"
-      - "deploy"
-      - "--quiet"
-
+    args: ["app", "deploy", "--quiet"]
 options:
   logging: CLOUD_LOGGING_ONLY
