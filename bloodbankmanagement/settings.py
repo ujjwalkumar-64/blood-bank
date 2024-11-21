@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['us-central1-docker.pkg.dev', 'blood-bank-121963256536.us-central1.run.app', '34.121.207.214','cloud.com','localhost']
+ALLOWED_HOSTS = ['us-central1-docker.pkg.dev', 'blood-bank-121963256536.us-central1.run.app', '34.121.207.214','cloud.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -62,6 +62,7 @@ SESSION_COOKIE_SECURE = True
 SECURE_BROWSER_XSS_FILTER = True
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_SSL_REDIRECT = True
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 
@@ -95,7 +96,7 @@ DATABASES = {
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('DB_USER'),
         'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
+        'HOST': os.getenv("DB_HOST"),
         'PORT': os.getenv('DB_PORT'),
     }
 }

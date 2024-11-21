@@ -1,0 +1,28 @@
+runtime: python310  # Specify the Python version (ensure it's available in App Engine)
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: "bloodbankmanagement.settings.production"  # Path to your production settings file
+
+entrypoint: gunicorn -b :$PORT bloodbankmanagement.wsgi:application  # Use Gunicorn to serve the app
+
+instance_class: F2  # Optional: Specify the instance type (can be omitted for default)
+
+handlers:
+  - url: /static
+    static_dir: static/  # Serve static files
+  - url: /media
+    static_dir: media/   # Serve media files
+
+# Optional: This is for using Cloud SQL for the database (PostgreSQL example)
+env_variables:
+   
+    DB_NAME: blood
+    DB_USER: root
+    DB_PASSWORD: Rgipt123
+    DB_HOST: 34.121.207.214
+    DB_PORT: 3306
+    SECRET_KEY : +zy!9k=9pql5gz9bkqjore)k6r!%w0atk(@(!(!zvp5e(t2i8n
+    EMAIL_HOST_USER: 22cs3064@rgipt.ac.in
+    EMAIL_HOST_PASSWORD: UJku@7890
+    
+  CLOUD_SQL_CONNECTION_NAME : blood-bank-442312:us-central1:blood
