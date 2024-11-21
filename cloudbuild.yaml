@@ -5,14 +5,8 @@
 #     args: ["python", "manage.py", "migrate"]
 #   - name: "gcr.io/cloud-builders/gcloud"
 #     args: ["app", "deploy", "--quiet"]
-# options:
-#   logging: CLOUD_LOGGING_ONLY
-
-options:
-  logging: CLOUD_LOGGING_ONLY
-
 steps:
-  # Step 1: Use a base Python image to install dependencies
+  # Step 1: Use an official Python image to install dependencies
   - name: "python:3.10"
     entrypoint: "bash"
     args:
@@ -29,8 +23,5 @@ steps:
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy", "--quiet"]
 
-  # Optional: Store logs in a custom bucket
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ["logging", "write", "build-logs", "--severity", "INFO"]
-
-timeout: "1200s"
+options:
+  logging: CLOUD_LOGGING_ONLY
