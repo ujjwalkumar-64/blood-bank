@@ -7,8 +7,3 @@ steps:
     args: ["app", "deploy", "--quiet"]
 options:
   logging: CLOUD_LOGGING_ONLY
-
-availableSecrets:
-  secretManager:
-    - version: latest
-      secret: blood-bank-442312:us-central1:blood
