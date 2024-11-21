@@ -21,3 +21,5 @@ class Patient(models.Model):
         return self
     def __str__(self):
         return self.user.first_name
+    class Meta:
+        app_label = 'patient' 
