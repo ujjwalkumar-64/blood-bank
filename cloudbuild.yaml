@@ -5,3 +5,5 @@ steps:
     args: ["python", "manage.py", "migrate"]
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy", "--quiet"]
+options:
+  logging: CLOUD_LOGGING_ONLY
