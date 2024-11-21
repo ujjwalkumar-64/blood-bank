@@ -1,0 +1,7 @@
+steps:
+  - name: "gcr.io/cloud-builders/python"
+    args: ["pip", "install", "-r", "requirements.txt"]
+  - name: "gcr.io/cloud-builders/python"
+    args: ["python", "manage.py", "migrate"]
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy", "--quiet"]
