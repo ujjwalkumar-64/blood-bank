@@ -9,5 +9,6 @@
             "src":"/(.*)",
             "dest":"bloodbankmanagement/wsgi.py"
         }
-    ]
+    ],
+    "buildCommand": "apt-get update && apt-get install -y default-libmysqlclient-dev && pip install -r requirements.txt"
 }
